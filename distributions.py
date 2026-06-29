@@ -16,9 +16,9 @@ def latency_stats(df):
     
     stats['p50'] = df['time_on_book_ns'].quantile(0.5) / 1000
     stats['p90'] = df['time_on_book_ns'].quantile(0.9) / 1000
-    stats['p95']= df['time_on_book_ns'].quantile(0.95) / 1000
+    stats['p95'] = df['time_on_book_ns'].quantile(0.95) / 1000
     stats['p99'] = df['time_on_book_ns'].quantile(0.99) / 1000
-    stats['p99_9']  = df['time_on_book_ns'].quantile(0.999) / 1000
+    stats['p99_9'] = df['time_on_book_ns'].quantile(0.999) / 1000
     stats['max'] = df['time_on_book_ns'].max() / 1000
 
     return stats

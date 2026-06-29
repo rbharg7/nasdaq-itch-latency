@@ -21,7 +21,7 @@ def parse_exit(payload):
 
 def parse_itch_file(filepath):
     with gzip.open(filepath, 'rb') as f:
-        
+
         add_ptypes = {'A', 'F'}
         exit_ptypes = {'C' , "D", "E"}
 
@@ -32,7 +32,7 @@ def parse_itch_file(filepath):
 
             curr = f.read(2)
             if not curr:
-                break 
+                break
             p_len = int.from_bytes(bytes(curr[0:2]), 'big')
             curr  = f.read(p_len)
             p_type = chr(curr[0])
@@ -57,27 +57,4 @@ def parse_itch_file(filepath):
                     })
                     del open_orders[order_ref]
 
-
-
-
         return records
-
-    
-            
-        
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-

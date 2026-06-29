@@ -16,9 +16,6 @@ market_hours = executed[(executed['add_ns'] >= 48600e9) & (executed['add_ns'] <=
 market_hours = market_hours.set_index('add_time')
 intraday = market_hours['time_on_book_ns'].resample('1min').quantile(0.99) / 1000
 
-# executed = executed.set_index('add_time')
-
-
 
 def plot_cdf(executed, buy_orders, sell_orders):
     percentiles = np.linspace(0, 99.9, 1000)
