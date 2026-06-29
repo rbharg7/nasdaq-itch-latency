@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 import pandas as pd
 
-df = pd.read_parquet('lifecycles.parquet')
+df = pd.read_parquet('data/lifecycles.parquet')
 
 executed = df[df['exit_type'].isin(['E', 'C'])].copy()
 buy_orders = executed[executed['side'].isin(['B'])]
