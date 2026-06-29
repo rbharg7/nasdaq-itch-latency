@@ -1,6 +1,6 @@
 # NASDAQ ITCH Latency Analyzer
 
-I built a latency-analysing system using parsed NASDAQ BX TotalView-ITCH 5.0 — a 36 million+ record binary dataset. The latency was calculated as the difference between the time an order was added and the time the same order was completed or deleted. I used these latencies to build latency distributions (p50/p90/p95/p99/p99.9), also comparing the latencies for the buy and sell sides. This study is important to identify inefficiencies in exchange behavior.
+I built a latency-analysing system using parsed NASDAQ BX TotalView-ITCH 5.0 which is a 36 million+ record binary dataset. The latency was calculated as the difference between the time an order was added and the time the same order was completed or deleted. I used these latencies to build latency distributions (p50/p90/p95/p99/p99.9), also comparing the latencies for the buy and sell sides. This study is important to identify inefficiencies in exchange behavior.
 
 ## Files
 
@@ -11,8 +11,8 @@ I built a latency-analysing system using parsed NASDAQ BX TotalView-ITCH 5.0 —
 
 ## Key Findings
 
-1. Sell orders filled marginally faster than buy orders at every percentile — sell p50 was 3.7s vs buy p50 of 3.8s
-2. The distribution has a heavy right tail — while p50 fill time was 3.7 seconds, p99 was ~8 minutes, meaning the slowest 1% of orders took ~130x longer than the median
+1. Sell orders filled marginally faster than buy orders at every percentile. The sell p50 was 3.7s vs buy p50 of 3.8s
+2. The distribution has a heavy right tail. While p50 fill time was 3.7 seconds, p99 was ~8 minutes, meaning the slowest 1% of orders took ~130x longer than the median
 3. p99 latency was highest at market open (13:30 UTC) and declined steadily through the session, collapsing sharply at market close (16:00 UTC)
 
 ## Charts
