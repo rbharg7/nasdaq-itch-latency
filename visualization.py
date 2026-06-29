@@ -10,12 +10,6 @@ executed = df[df['exit_type'].isin(['E', 'C'])].copy()
 buy_orders = executed[executed['side'].isin(['B'])]
 sell_orders = executed[executed['side'].isin(['S'])]
 
-percentiles = np.linspace(0, 99.9, 1000)
-
-values = np.percentile(executed['time_on_book_ns'] / 1000, percentiles)
-buy_values = np.percentile(buy_orders['time_on_book_ns'] / 1000, percentiles)
-sell_values = np.percentile(sell_orders['time_on_book_ns'] / 1000, percentiles)
-
 base_date = pd.Timestamp('2019-05-30')
 executed['add_time'] = base_date + pd.to_timedelta(executed['add_ns'], unit='ns')
 market_hours = executed[(executed['add_ns'] >= 48600e9) & (executed['add_ns'] <= 72000e9)].copy()
@@ -27,6 +21,9 @@ intraday = market_hours['time_on_book_ns'].resample('1min').quantile(0.99) / 100
 
 
 def plot_cdf(executed, buy_orders, sell_orders):
+    percentiles = np.linspace(0, 99.9, 1000)
+    buy_values = np.percentile(buy_orders['time_on_book_ns'] / 1000, percentiles)
+    sell_values = np.percentile(sell_orders['time_on_book_ns'] / 1000, percentiles)
 
     plt.yscale('log')
     plt.xlabel('Percentile')
