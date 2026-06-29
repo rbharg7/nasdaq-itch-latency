@@ -25,4 +25,5 @@ I built a latency-analysing system using parsed NASDAQ BX TotalView-ITCH 5.0 —
 1. Download the data: `wget "ftp://emi.nasdaq.com/ITCH/Nasdaq BX ITCH/20190530.BX_ITCH_50.gz"`
 2. Install dependencies: `pip install -r requirements.txt`
 3. Build the dataset: `python3 dataset.py`
-4. Visualize: `python3 visualization.py`
+4. Compute distributions: `python3 distributions.py`
+5. Visualize: `python3 visualization.py`
